@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 23:15:56 by relamine          #+#    #+#             */
-/*   Updated: 2025/04/16 15:41:20 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/16 15:54:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
     std::cout << "\n----- grade too high -----" << std::endl;
     try
     {
-        Form b("ImpossibleForm", 0, 8);
+        Form b("gradetoohighForm", 0, 8);
     }
     catch (std::exception &e)
     {
@@ -27,7 +27,7 @@ int main()
     std::cout << "\n----- grade too low -----" << std::endl;
     try
     {
-        Form c("LazyForm", 9, 151); // grade too low
+        Form c("gradetoolow", 9, 151);
     }
     catch (std::exception &e)
     {
