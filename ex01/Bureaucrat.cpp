@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 00:48:15 by relamine          #+#    #+#             */
-/*   Updated: 2025/04/16 15:28:23 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/16 15:24:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,15 @@ std::ostream& operator << (std::ostream &out, const Bureaucrat& f)
 {
 	out << f.getName() << ", bureaucrat grade " << f.getGrade() << ".";
 	return (out);
+}
+
+void			Bureaucrat::signForm(Form &f)
+{
+    if (f.getIs_signed())
+    {
+        std::cout << this->name << " couldn't sign " << f.getName() << " because it's already signed." << std::endl;
+        return ;
+    }
+    f.beSigned(*this);
+    std::cout << this->name << " signed " << f.getName() << std::endl;
 }

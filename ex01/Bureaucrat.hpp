@@ -6,13 +6,17 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 00:48:42 by relamine          #+#    #+#             */
-/*   Updated: 2025/04/16 15:09:43 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/16 15:15:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -40,6 +44,7 @@ class Bureaucrat
         int				getGrade() const;
 		void			increment_grade();
 		void			decrement_grade();
+		void			signForm(Form &f);
 };
 
 std::ostream& operator << (std::ostream &out, const Bureaucrat& f);

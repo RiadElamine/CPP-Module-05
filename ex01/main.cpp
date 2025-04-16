@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 23:15:56 by relamine          #+#    #+#             */
-/*   Updated: 2025/04/16 13:13:21 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/16 15:41:20 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,64 +14,64 @@
 
 int main()
 {
-    std::cout << "* Valid construction & Valid grade changes" << std::endl;
+    std::cout << "\n----- grade too high -----" << std::endl;
     try
     {
-        Bureaucrat f("Frank", 100);
-        std::cout << f << std::endl;
-        f.decrement_grade();
-        std::cout << "After decrement: " << f << std::endl;
-        f.increment_grade();
-        std::cout << "After increment: " << f << std::endl;
+        Form b("ImpossibleForm", 0, 8);
     }
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
 
-    std::cout << "\n* grade too high" << std::endl;
+    std::cout << "\n----- grade too low -----" << std::endl;
     try
     {
-        Bureaucrat b("Bob", 0);
+        Form c("LazyForm", 9, 151); // grade too low
     }
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
 
-    std::cout << "\n* grade too low" << std::endl;
+    std::cout << "\n----- Bureaucrat successfully signs a Form -----" << std::endl;
     try
     {
-        Bureaucrat c("Charlie", 151);
+        Bureaucrat bob("Bob", 8);
+        Form contract("Contract", 10, 6);
+        std::cout << contract << std::endl;
+        bob.signForm(contract);
+        std::cout << contract << std::endl;
     }
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
 
-    std::cout << "\n* Increment beyond limit" << std::endl;
+    std::cout << "\n----- Bureaucrat fails to sign Form (low grade) -----\n";
     try
     {
-        Bureaucrat d("Diana", 1);
-        std::cout << d << std::endl;
-        d.increment_grade();
+        Bureaucrat jim("Jim", 100);
+        Form secret("SecretFile", 10, 6);
+        std::cout << secret << std::endl;
+        jim.signForm(secret);
+    }
+    catch (std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
+
+    std::cout << "\n----- Form already signed -----\n";
+    try
+    {
+        Bureaucrat riad("riad", 1);
+        Form report("Report", 10, 5);
+        riad.signForm(report); 
+        riad.signForm(report);
     }
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
-
-    std::cout << "\n* Decrement beyond limit" << std::endl;
-    try
-    {
-        Bureaucrat e("Eve", 150);
-        std::cout << e << std::endl;
-        e.decrement_grade();
-    }
-    catch (std::exception &e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-
+    
     return 0;
 }
