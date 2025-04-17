@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 00:48:15 by relamine          #+#    #+#             */
-/*   Updated: 2025/04/16 15:28:23 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/17 13:53:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Bureaucrat::Bureaucrat(const std::string _name, int grade) : name(_name)
     if (grade > 150)
         throw GradeTooLowException();
     this->grade = grade;
+    std::cout << "Constructor of Bureaucrat " << this->name << " called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& f)

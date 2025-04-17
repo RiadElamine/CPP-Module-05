@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 13:48:33 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/17 15:18:04 by codespace        ###   ########.fr       */
+/*   Created: 2025/04/17 06:59:17 by codespace         #+#    #+#             */
+/*   Updated: 2025/04/17 15:16:27 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string   name;
@@ -34,16 +34,27 @@ class Form
 		};
 
     public:
-        Form();
-        Form(const std::string name, int grade_s, int grade_e);
-        Form(const Form &b);
-        Form &operator=(const Form &b);
-        ~Form();
+        AForm();
+        AForm(const std::string name, int grade_s, int grade_e);
+        AForm(const AForm &b);
+        AForm &operator=(const AForm &b);
+        virtual ~AForm();
         std::string		getName() const;
         bool			getIs_signed() const;
         int				getGradeToSign() const;
         int				getGradeToExecute() const;
         void			beSigned(Bureaucrat const &b);
+        virtual void	execute(Bureaucrat const & executor) const = 0;
+        void			checkExecution(Bureaucrat const & executor) const;
+    
+        class FormNotSignedException : public std::exception
+        {
+            const char* what() const throw();
+        };
+        class GradeTooLowForExecutionException : public std::exception
+        {
+            const char* what() const throw();
+        };
 };
 
-std::ostream& operator << (std::ostream &out, const Form& f);
+std::ostream& operator << (std::ostream &out, const AForm& f);

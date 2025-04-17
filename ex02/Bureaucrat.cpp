@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 00:48:15 by relamine          #+#    #+#             */
-/*   Updated: 2025/04/17 13:53:19 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/17 15:17:27 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ std::ostream& operator << (std::ostream &out, const Bureaucrat& f)
 	return (out);
 }
 
-void			Bureaucrat::signForm(Form &f)
+void			Bureaucrat::signForm(AForm &f)
 {
     if (f.getIs_signed())
     {
@@ -103,4 +103,10 @@ void			Bureaucrat::signForm(Form &f)
     }
     f.beSigned(*this);
     std::cout << this->name << " signed " << f.getName() << std::endl;
+}
+
+void			Bureaucrat::executeForm(AForm const & form)
+{
+    form.execute(*this);
+    std::cout << this->name << " executed " << form.getName() << std::endl;
 }

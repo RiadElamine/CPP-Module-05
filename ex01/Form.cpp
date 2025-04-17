@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:48:28 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/16 15:45:31 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/17 15:18:14 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ std::ostream& operator << (std::ostream &out, const Form& f)
     return out;
 }
 
-void    Form::beSigned(Bureaucrat &b)
+void    Form::beSigned(Bureaucrat const &b)
 {
     if (b.getGrade() > this->grade_to_sign)
         throw Form::GradeTooLowException();
