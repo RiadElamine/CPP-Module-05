@@ -1,11 +1,11 @@
 NAME = Bureaucrat
 
-SOURCE = Bureaucrat.cpp main.cpp AForm.cpp  Intern.cpp\
-	 PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp 
+SOURCE = Bureaucrat.cpp main.cpp AForm.cpp Intern.cpp\
+	 PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 OBJECT = $(SOURCE:.cpp=.o)
 
-HEARDER = Bureaucrat.hpp AForm.hpp Intern.hpp \
+HEARDER = Bureaucrat.hpp AForm.hpp Intern.hpp\
 	 PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98

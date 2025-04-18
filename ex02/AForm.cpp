@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: relamine <relamine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 06:58:56 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/17 15:53:03 by codespace        ###   ########.fr       */
+/*   Created: 2025/04/18 16:45:46 by relamine          #+#    #+#             */
+/*   Updated: 2025/04/18 16:49:24 by relamine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ std::ostream& operator << (std::ostream &out, const AForm& f)
 void    AForm::beSigned(Bureaucrat const &b)
 {
     if (b.getGrade() > this->grade_to_sign)
+    {
+        std::cout << b.getName() << " couldn't sign " << this->getName() << " because Grade to sign too low!." << std::endl;
         throw AForm::GradeTooLowException();
+    }
     this->is_signed = true;
 }
 
