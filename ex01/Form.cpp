@@ -6,7 +6,7 @@
 /*   By: relamine <relamine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:20:28 by relamine          #+#    #+#             */
-/*   Updated: 2025/04/18 15:25:24 by relamine         ###   ########.fr       */
+/*   Updated: 2025/04/19 16:16:51 by relamine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,6 @@ std::ostream& operator << (std::ostream &out, const Form& f)
 void    Form::beSigned(Bureaucrat const &b)
 {
     if (b.getGrade() > this->grade_to_sign)
-    {
-        std::cout << b.getName() << " couldn't sign " << this->getName() << " because Grade to sign too low!." << std::endl;
         throw Form::GradeTooLowException();
-    }
     this->is_signed = true;
 }

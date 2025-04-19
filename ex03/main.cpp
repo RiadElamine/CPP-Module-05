@@ -6,7 +6,7 @@
 /*   By: relamine <relamine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 16:43:44 by relamine          #+#    #+#             */
-/*   Updated: 2025/04/18 17:07:44 by relamine         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:16:06 by relamine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main()
         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
         if (!rrf)
             return 1;
-
         b.signForm(*rrf);
         std::cout << "-----------------------------" << std::endl;
     }
@@ -33,6 +32,5 @@ int main()
     }
     
     delete rrf;
-    
     return 0;
 }

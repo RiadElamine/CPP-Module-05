@@ -6,7 +6,7 @@
 /*   By: relamine <relamine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:16:28 by relamine          #+#    #+#             */
-/*   Updated: 2025/04/18 15:52:35 by relamine         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:09:12 by relamine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,28 @@ void			Bureaucrat::signForm(AForm &f)
         std::cout << this->name << " couldn't sign " << f.getName() << " because it's already signed." << std::endl;
         return ;
     }
-    f.beSigned(*this);
+    try 
+    {
+        f.beSigned(*this);
+    }
+    catch (...)
+    {
+        std::cout << this->getName() << " couldn't sign " << f.getName() << " because Grade to sign too low!." << std::endl;
+        throw;
+    }
     std::cout << this->name << " signed " << f.getName() << std::endl;
 }
 
 void			Bureaucrat::executeForm(AForm const & form)
 {
-    form.execute(*this);
+    try
+    {
+        form.execute(*this);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "❌💥💥💥💥Error💥💥💥💥❌" << std::endl;
+        throw;
+    }
     std::cout << this->name << " executed " << form.getName() << std::endl;
 }
