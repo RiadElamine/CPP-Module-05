@@ -14,7 +14,7 @@
 
 int main()
 {
-    AForm* rrf;
+    AForm* rrf = NULL;
     try
     {
         Intern someRandomIntern;
