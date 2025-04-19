@@ -19,15 +19,6 @@
 
 class Intern
 {
-	private:
-		const std::string   name;
-		int                 grade;
-
-		class GradeTooHighException : public std::exception 
-		{
-			const char* what() const throw();
-		};
-
     public:
         Intern();
         Intern(const Intern &b);
